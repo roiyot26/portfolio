@@ -1,11 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github, Eye, Filter, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github, Eye, ArrowRight } from 'lucide-react'
 import { projects as mockProjects, getFeaturedProjects, incrementProjectViews } from '../data/projects'
 
 export const Projects = () => {
   const projectsRef = useRef<HTMLElement>(null)
-  const [selectedFilter, setSelectedFilter] = useState('all')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,19 +26,6 @@ export const Projects = () => {
   }, [])
 
   const projects = mockProjects
-
-  const filters = [
-    { key: 'all', label: 'All Projects' },
-    { key: 'frontend', label: 'Frontend' },
-    { key: 'backend', label: 'Backend' },
-    { key: 'fullstack', label: 'Full Stack' },
-    { key: 'mobile', label: 'Mobile' }
-  ]
-
-  const filteredProjects = selectedFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === selectedFilter)
-
   const featuredProjects = getFeaturedProjects()
 
   return (
@@ -62,29 +48,6 @@ export const Projects = () => {
           </p>
         </motion.div>
 
-        {/* Filter Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {filters.map((filter) => (
-            <button
-              key={filter.key}
-              onClick={() => setSelectedFilter(filter.key)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
-                selectedFilter === filter.key
-                  ? 'bg-primary-600 text-white shadow-glow'
-                  : 'bg-white dark:bg-dark-800 text-dark-600 dark:text-dark-300 border border-dark-200 dark:border-dark-700 hover:border-primary-300 hover:text-primary-600'
-              }`}
-            >
-              <Filter size={16} className="inline mr-2" />
-              {filter.label}
-            </button>
-          ))}
-        </motion.div>
 
         {/* Featured Projects */}
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
@@ -99,11 +62,24 @@ export const Projects = () => {
             >
               {/* Project Image */}
               <div className="aspect-video bg-gradient-to-br from-primary-100 to-blue-100 dark:from-primary-900/20 dark:to-blue-900/20 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center bg-primary-200/50 dark:bg-primary-900/30">
-                  <span className="text-4xl font-bold text-primary-600 dark:text-primary-400">
-                    {project.title.charAt(0)}
-                  </span>
-                </div>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to initial letter if image fails to load
+                    const target = e.target as HTMLImageElement
+                    target.style.display = 'none'
+                    const parent = target.parentElement
+                    if (parent) {
+                      parent.innerHTML = `
+                        <div class="absolute inset-0 flex items-center justify-center bg-primary-200/50 dark:bg-primary-900/30">
+                          <span class="text-4xl font-bold text-primary-600 dark:text-primary-400">${project.title.charAt(0)}</span>
+                        </div>
+                      `
+                    }
+                  }}
+                />
                 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
@@ -182,7 +158,7 @@ export const Projects = () => {
 
         {/* All Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, index) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 30 }}
@@ -193,11 +169,24 @@ export const Projects = () => {
             >
               {/* Project Image */}
               <div className="aspect-video bg-gradient-to-br from-primary-100 to-blue-100 dark:from-primary-900/20 dark:to-blue-900/20 relative overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center bg-primary-200/50 dark:bg-primary-900/30">
-                  <span className="text-3xl font-bold text-primary-600 dark:text-primary-400">
-                    {project.title.charAt(0)}
-                  </span>
-                </div>
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to initial letter if image fails to load
+                    const target = e.target as HTMLImageElement
+                    target.style.display = 'none'
+                    const parent = target.parentElement
+                    if (parent) {
+                      parent.innerHTML = `
+                        <div class="absolute inset-0 flex items-center justify-center bg-primary-200/50 dark:bg-primary-900/30">
+                          <span class="text-3xl font-bold text-primary-600 dark:text-primary-400">${project.title.charAt(0)}</span>
+                        </div>
+                      `
+                    }
+                  }}
+                />
                 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-3">

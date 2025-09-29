@@ -84,19 +84,19 @@ export const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'your.email@example.com',
-      href: 'mailto:your.email@example.com'
+      value: 'roiyot261098@gmail.com',
+      href: 'mailto:roiyot261098@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567'
+      value: '+972 (50) 639-8845',
+      href: 'tel:+972506398845'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Israel',
       href: '#'
     }
   ]
@@ -105,13 +105,13 @@ export const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/roiyot26',
       color: 'hover:text-gray-900'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://linkedin.com/in/roi-yotvat-874ba9209',
       color: 'hover:text-blue-600'
     },
     {

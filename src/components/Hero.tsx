@@ -31,6 +31,13 @@ export const Hero = () => {
     }
   }
 
+  const scrollToProjects = () => {
+    const projectsSection = document.querySelector('#projects')
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section id="home" ref={heroRef} className="animate-on-scroll min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background gradient */}
@@ -59,7 +66,7 @@ export const Hero = () => {
             <div className="relative">
               <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-primary p-1">
                 <div className="w-full h-full rounded-full bg-white dark:bg-dark-800 flex items-center justify-center">
-                  <span className="text-4xl sm:text-6xl font-bold text-gradient">YO</span>
+                  <span className="text-4xl sm:text-6xl font-bold text-gradient">ROI</span>
                 </div>
               </div>
               <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-dark-800 animate-pulse" />
@@ -74,7 +81,7 @@ export const Hero = () => {
             className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6"
           >
             <span className="text-dark-900 dark:text-white">Hi, I'm </span>
-            <span className="text-gradient">Your Name</span>
+            <span className="text-gradient">Roi Yotvat</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -95,7 +102,10 @@ export const Hero = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-12"
           >
-            <button className="btn btn-primary px-8 py-3 text-lg font-semibold rounded-xl shadow-glow hover:shadow-none transition-all duration-300">
+            <button 
+              onClick={scrollToProjects}
+              className="btn btn-primary px-8 py-3 text-lg font-semibold rounded-xl shadow-glow hover:shadow-none transition-all duration-300"
+            >
               View My Work
             </button>
             
@@ -113,7 +123,7 @@ export const Hero = () => {
             className="flex items-center justify-center space-x-6 mb-8"
           >
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/roiyot26"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-dark-100 dark:bg-dark-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group"
@@ -122,7 +132,7 @@ export const Hero = () => {
             </a>
             
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/roi-yotvat-874ba9209"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full bg-dark-100 dark:bg-dark-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group"
@@ -131,7 +141,7 @@ export const Hero = () => {
             </a>
 
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:roiyot261098@gmail.com"
               className="p-3 rounded-full bg-dark-100 dark:bg-dark-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group"
             >
               <span className="font-medium">Email</span>
