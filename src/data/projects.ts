@@ -35,11 +35,32 @@ export const projects: Project[] = [
     startDate: '2024-08-01',
     endDate: '2024-11-15',
     featured: true,
-    priority: 12,
+    priority: 13,
     status: 'completed',
     tags: ['website-builder', 'fullstack', 'react', 'collaboration', 'responsive'],
     views: 2450,
     likes: 156,
+    collaborators: ['Roi Yotvat']
+  },
+  {
+    id: 7,
+    title: 'Portfolio Website',
+    description: 'A modern, responsive portfolio website showcasing my projects, skills, and professional experience. Features smooth animations, dark/light mode toggle, and interactive elements.',
+    longDescription: 'A comprehensive portfolio website built with React, TypeScript, and Vite. Features include smooth Framer Motion animations, responsive design with Tailwind CSS, dark/light mode toggle, interactive project showcase, contact form, and optimized performance. The site demonstrates modern web development practices and showcases my technical skills and design capabilities.',
+    image: '/images/portfolio.png',
+    images: ['/images/portfolio.png'],
+    technologies: ['React', 'TypeScript', 'Vite', 'Framer Motion', 'Tailwind CSS', 'Lucide React'],
+    category: 'frontend',
+    liveUrl: '', // Will be updated when you provide the link
+    githubUrl: '', // Will be updated when you provide the link
+    startDate: '2024-12-01',
+    endDate: '2024-12-16',
+    featured: true,
+    priority: 12,
+    status: 'completed',
+    tags: ['portfolio', 'personal', 'design', 'responsive', 'animations'],
+    views: 0,
+    likes: 0,
     collaborators: ['Roi Yotvat']
   },
   {
@@ -138,24 +159,6 @@ export const projects: Project[] = [
     views: 1180,
     likes: 95,
     collaborators: ['Emma Wilson', 'David Kim']
-  },
-  {
-    id: 7,
-    title: 'Portfolio Website',
-    description: 'A responsive portfolio website showcasing projects, skills, and personal information with smooth animations.',
-    image: '/api/placeholder/600/400',
-    technologies: ['React', 'Framer Motion', 'Tailwind CSS', 'TypeScript', 'Vite'],
-    category: 'frontend',
-    liveUrl: 'https://portfolio-demo.netlify.app',
-    githubUrl: 'https://github.com/roiyot26/portfolio-v2',
-    startDate: '2024-04-20',
-    endDate: '2024-05-15',
-    featured: false,
-    priority: 5,
-    status: 'completed',
-    tags: ['portfolio', 'personal', 'design'],
-    views: 520,
-    likes: 28
   }
 ]
 

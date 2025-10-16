@@ -39,6 +39,17 @@ export const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <div className="flex items-center justify-center mb-6">
+            <div className="flex items-center space-x-3 bg-dark-100 dark:bg-dark-800 px-4 py-2 rounded-lg border border-dark-200 dark:border-dark-700">
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              </div>
+              <span className="text-sm font-mono text-dark-600 dark:text-dark-300">projects.js</span>
+            </div>
+          </div>
+          
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             Featured <span className="text-gradient">Projects</span>
           </h2>
@@ -46,6 +57,28 @@ export const Projects = () => {
           <p className="text-lg text-dark-600 dark:text-dark-300 max-w-2xl mx-auto">
             A collection of my best work showcasing creativity, technical skills, and problem-solving abilities.
           </p>
+          
+          {/* Dev-themed code snippet */}
+          <div className="mt-8 max-w-sm sm:max-w-md mx-auto px-4 sm:px-0">
+            <div className="bg-dark-900 dark:bg-dark-800 rounded-lg border border-dark-700 dark:border-dark-600 overflow-hidden">
+              <div className="flex items-center bg-dark-800 dark:bg-dark-700 px-3 py-2 border-b border-dark-700 dark:border-dark-600">
+                <div className="flex space-x-1 sm:space-x-2">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <span className="text-xs text-dark-400 font-mono ml-2 sm:ml-3">portfolio.js</span>
+              </div>
+              <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm">
+                <div className="text-green-400 mb-1">
+                  <span className="text-blue-400">const</span> projects = <span className="text-yellow-400">await</span> fetchProjects();
+                </div>
+                <div className="text-white">
+                  <span className="text-blue-400">console</span>.<span className="text-yellow-400">log</span>(<span className="text-green-400">'Building amazing apps...'</span>);
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
 
@@ -106,10 +139,13 @@ export const Projects = () => {
               {/* Project Info */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl font-semibold group-hover:text-primary-600 transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-medium rounded-full">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <h3 className="text-xl font-semibold group-hover:text-primary-600 transition-colors duration-200">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <span className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 text-sm font-medium rounded-full font-mono">
                     Featured
                   </span>
                 </div>
@@ -123,7 +159,7 @@ export const Projects = () => {
                   {project.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-dark-100 dark:bg-dark-700 text-dark-700 dark:text-dark-300 text-sm rounded-full"
+                      className="px-3 py-1 bg-dark-100 dark:bg-dark-700 text-dark-700 dark:text-dark-300 text-sm rounded-full font-mono border border-dark-200 dark:border-dark-600 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200"
                     >
                       {tech}
                     </span>

@@ -49,6 +49,17 @@ export const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <div className="flex items-center justify-center mb-6">
+            <div className="flex items-center space-x-3 bg-dark-100 dark:bg-dark-800 px-4 py-2 rounded-lg border border-dark-200 dark:border-dark-700">
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              </div>
+              <span className="text-sm font-mono text-dark-600 dark:text-dark-300">about.js</span>
+            </div>
+          </div>
+          
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             <span className="text-gradient">About</span> Me
           </h2>
@@ -131,10 +142,15 @@ export const About = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="p-6 rounded-xl bg-white dark:bg-dark-800 border border-dark-200 dark:border-dark-700 hover:shadow-glow transition-all duration-300 group"
+                  className="p-6 rounded-xl bg-white dark:bg-dark-800 border border-dark-200 dark:border-dark-700 hover:shadow-glow transition-all duration-300 group relative overflow-hidden"
                 >
+                  {/* Subtle dev-themed background pattern */}
+                  <div className="absolute top-2 right-2 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                    <span className="text-xs font-mono text-dark-400">{'</>'}</span>
+                  </div>
+                  
                   <stat.icon className="w-8 h-8 text-primary-600 mb-3 group-hover:scale-110 transition-transform duration-200" />
-                  <div className="text-3xl font-bold text-gradient mb-1">{stat.number}</div>
+                  <div className="text-3xl font-bold text-gradient mb-1 font-mono">{stat.number}</div>
                   <div className="text-sm text-dark-600 dark:text-dark-300">{stat.label}</div>
                 </motion.div>
               ))}

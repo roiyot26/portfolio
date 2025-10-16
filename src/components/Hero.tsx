@@ -56,20 +56,49 @@ export const Hero = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Profile Image */}
+          {/* Dev Avatar */}
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+            initial={{ scale: 0, rotate: -10 }}
+            animate={{ scale: 1, rotate: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="flex justify-center mb-8"
           >
             <div className="relative">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-gradient-primary p-1">
-                <div className="w-full h-full rounded-full bg-white dark:bg-dark-800 flex items-center justify-center">
-                  <span className="text-4xl sm:text-6xl font-bold text-gradient">ROI</span>
+              {/* Terminal-style container */}
+              <div className="w-36 h-28 sm:w-40 sm:h-32 md:w-48 md:h-36 bg-dark-900 dark:bg-dark-800 rounded-lg border-2 border-dark-700 dark:border-dark-600 shadow-2xl overflow-hidden">
+                {/* Terminal header */}
+                <div className="flex items-center bg-dark-800 dark:bg-dark-700 px-2 sm:px-3 py-1.5 sm:py-2 border-b border-dark-700 dark:border-dark-600">
+                  <div className="flex space-x-1 sm:space-x-2">
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                    <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <span className="text-xs text-dark-400 font-mono">terminal</span>
+                  </div>
+                </div>
+                
+                {/* Terminal content */}
+                <div className="p-2 sm:p-4 h-full flex flex-col justify-center">
+                  <div className="text-green-400 font-mono text-xs sm:text-sm mb-1 sm:mb-2">
+                    <span className="text-blue-400">$</span> whoami
+                  </div>
+                  <div className="text-white font-mono text-sm sm:text-lg md:text-xl font-bold">
+                    <span className="text-gradient">Roi Yotvat</span>
+                  </div>
+                  <div className="text-green-400 font-mono text-xs sm:text-sm mt-1 sm:mt-2">
+                    <span className="text-blue-400">$</span> <span className="animate-pulse">_</span>
+                  </div>
                 </div>
               </div>
-              <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white dark:border-dark-800 animate-pulse" />
+              
+              {/* Floating code elements */}
+              <div className="absolute -top-2 -left-2 w-6 h-6 bg-primary-500 rounded-full flex items-center justify-center text-white text-xs font-bold animate-bounce">
+                {'</>'}
+              </div>
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold animate-pulse">
+                {'{}'}
+              </div>
             </div>
           </motion.div>
 
@@ -91,7 +120,7 @@ export const Hero = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="text-lg sm:text-xl lg:text-2xl text-dark-600 dark:text-dark-300 mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Full-Stack Developer & UI/UX Designer passionate about creating beautiful, 
+            Full-Stack Developer passionate about creating beautiful, 
             functional applications that make a difference.
           </motion.p>
 

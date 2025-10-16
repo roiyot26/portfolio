@@ -99,6 +99,17 @@ export const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
+          <div className="flex items-center justify-center mb-6">
+            <div className="flex items-center space-x-3 bg-dark-100 dark:bg-dark-800 px-4 py-2 rounded-lg border border-dark-200 dark:border-dark-700">
+              <div className="flex space-x-1">
+                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              </div>
+              <span className="text-sm font-mono text-dark-600 dark:text-dark-300">skills.json</span>
+            </div>
+          </div>
+          
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
             My <span className="text-gradient">Skills</span>
           </h2>
@@ -106,6 +117,34 @@ export const Skills = () => {
           <p className="text-lg text-dark-600 dark:text-dark-300 max-w-2xl mx-auto">
             A comprehensive overview of my technical expertise and the tools I use to bring ideas to life.
           </p>
+          
+          {/* Dev-themed terminal output */}
+          <div className="mt-8 max-w-sm sm:max-w-lg mx-auto px-4 sm:px-0">
+            <div className="bg-dark-900 dark:bg-dark-800 rounded-lg border border-dark-700 dark:border-dark-600 overflow-hidden">
+              <div className="flex items-center bg-dark-800 dark:bg-dark-700 px-3 py-2 border-b border-dark-700 dark:border-dark-600">
+                <div className="flex space-x-1 sm:space-x-2">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full"></div>
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
+                </div>
+                <span className="text-xs text-dark-400 font-mono ml-2 sm:ml-3">terminal</span>
+              </div>
+              <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm">
+                <div className="text-green-400 mb-1">
+                  <span className="text-blue-400">$</span> npm run skills
+                </div>
+                <div className="text-white mb-1">
+                  <span className="text-yellow-400">✓</span> Frontend: React, TypeScript, Next.js
+                </div>
+                <div className="text-white mb-1">
+                  <span className="text-yellow-400">✓</span> Backend: Node.js, Express, MongoDB
+                </div>
+                <div className="text-white">
+                  <span className="text-yellow-400">✓</span> Tools: Git, Docker, AWS
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Skills Grid */}
@@ -127,7 +166,7 @@ export const Skills = () => {
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="px-3 py-1 bg-white dark:bg-dark-800 text-sm font-medium text-dark-700 dark:text-dark-300 rounded-full border border-dark-200 dark:border-dark-600"
+                    className="px-3 py-1 bg-white dark:bg-dark-800 text-sm font-medium text-dark-700 dark:text-dark-300 rounded-full border border-dark-200 dark:border-dark-600 font-mono hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:text-primary-600 dark:hover:text-primary-400 hover:border-primary-300 dark:hover:border-primary-700 transition-all duration-200"
                   >
                     {skill}
                   </span>
