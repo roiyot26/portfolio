@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, Download, Github, Linkedin } from 'lucide-react'
+import { ArrowDown, Download, Github, Linkedin, Mail } from 'lucide-react'
 
 export const Hero = () => {
   const heroRef = useRef<HTMLElement>(null)
@@ -173,7 +173,7 @@ export const Hero = () => {
               href="mailto:roiyot261098@gmail.com"
               className="p-3 rounded-full bg-dark-100 dark:bg-dark-800 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 group"
             >
-              <span className="font-medium">Email</span>
+              <Mail size={24} />
             </a>
           </motion.div>
 

@@ -56,14 +56,9 @@ export const About = () => {
                 <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               </div>
-              <span className="text-sm font-mono text-dark-600 dark:text-dark-300">about.js</span>
+              <span className="text-sm font-mono text-dark-600 dark:text-dark-300"><span className="text-gradient">About</span> Me</span>
             </div>
           </div>
-          
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-gradient">About</span> Me
-          </h2>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

@@ -46,15 +46,11 @@ export const Projects = () => {
                 <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
               </div>
-              <span className="text-sm font-mono text-dark-600 dark:text-dark-300">projects.js</span>
+              <span className="text-sm font-mono text-dark-600 dark:text-dark-300">Featured <span className="text-gradient">Projects</span></span>
             </div>
           </div>
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full mb-4" />
-          <p className="text-lg text-dark-600 dark:text-dark-300 max-w-2xl mx-auto">
+          <p className="text-lg text-dark-600 dark:text-dark-300 max-w-2xl mx-auto mb-8">
             A collection of my best work showcasing creativity, technical skills, and problem-solving abilities.
           </p>
           
