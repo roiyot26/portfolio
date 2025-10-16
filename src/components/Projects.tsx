@@ -304,10 +304,15 @@ export const Projects = () => {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <button className="btn btn-primary px-8 py-3 rounded-xl">
+          <a
+            href="https://github.com/roiyot26"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary px-8 py-3 rounded-xl inline-flex items-center"
+          >
             View All Projects
             <ArrowRight size={20} className="ml-2" />
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>
