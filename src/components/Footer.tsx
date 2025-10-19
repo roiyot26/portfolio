@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react'
+import { Github, Linkedin, Mail, Heart } from 'lucide-react'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -11,10 +11,9 @@ export const Footer = () => {
   ]
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com/yourusername', label: 'Twitter' },
-    { icon: Mail, href: 'mailto:your.email@example.com', label: 'Email' }
+    { icon: Github, href: 'https://github.com/roiyot26', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/roi-yotvat-874ba9209', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:roiyot261098@gmail.com', label: 'Email' }
   ]
 
   const scrollToSection = (href: string) => {
@@ -32,9 +31,9 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">P</span>
+                <span className="text-white font-bold text-lg">RY</span>
               </div>
-              <span className="text-xl font-bold text-gradient">Portfolio</span>
+              <span className="text-xl font-bold text-gradient">Roi Yotvat</span>
             </div>
             <p className="text-dark-600 dark:text-dark-300 leading-relaxed">
               Creating beautiful, functional applications that make a difference in people's lives.
@@ -91,8 +90,9 @@ export const Footer = () => {
             <div className="space-y-3 text-dark-600 dark:text-dark-300">
               <p>Let's work together to create something amazing.</p>
               <div className="space-y-2">
-                <p className="text-sm">your.email@example.com</p>
-                <p className="text-sm">+1 (555) 123-4567</p>
+                <p className="text-sm">roiyot261098@gmail.com</p>
+                <p className="text-sm">
+                +972 (50) 639-8845</p>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ export const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-2 text-dark-600 dark:text-dark-300">
               <span>&copy; {currentYear}</span>
-              <span>Your Name.</span>
+              <span>Roi Yotvat.</span>
               <span>All rights reserved.</span>
             </div>
             
@@ -115,17 +115,7 @@ export const Footer = () => {
           </div>
 
           {/* Additional Links */}
-          <div className="flex flex-wrap items-center justify-center space-x-6 mt-6 text-sm text-dark-500 dark:text-dark-400">
-            <a href="#" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
-              Terms of Service
-            </a>
-            <a href="#" className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
-              Cookie Policy
-            </a>
-          </div>
+          
         </div>
       </div>
     </footer>

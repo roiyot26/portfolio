@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
 import { sendContactMessage, validateContactForm, ContactFormData } from '../utils/contact'
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { SectionHeader } from './SectionHeader'
+import { FormField } from './FormField'
+import { fadeInLeft, fadeInRight, fadeInY, viewportOnce } from '../utils/animations'
 
 export const Contact = () => {
-  const contactRef = useRef<HTMLElement>(null)
+  const contactRef = useIntersectionObserver()
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
@@ -13,25 +17,6 @@ export const Contact = () => {
   })
   const [formErrors, setFormErrors] = useState<Partial<ContactFormData>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    if (contactRef.current) {
-      observer.observe(contactRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -126,29 +111,19 @@ export const Contact = () => {
     <section id="contact" ref={contactRef} className="animate-on-scroll section-container bg-gradient-to-br from-primary-50 to-blue-50 dark:from-dark-900 dark:to-primary-900/20 transition-all duration-700">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Get In <span className="text-gradient">Touch</span>
-          </h2>
-          <div className="w-24 h-1 bg-gradient-primary mx-auto rounded-full mb-4" />
-          <p className="text-lg text-dark-600 dark:text-dark-300 max-w-2xl mx-auto">
-            Have a project in mind? Let's collaborate and create something amazing together.
-          </p>
-        </motion.div>
+        <SectionHeader
+          title="Contact"
+          terminalText="Get In Touch"
+          subtitle="Have a project in mind? Let's collaborate and create something amazing together."
+          fileName="contact.js"
+          codeSnippet='<div class="text-green-400 mb-1"><span class="text-blue-400">const</span> contact = <span class="text-yellow-400">{</span></div><div class="text-white ml-4">email: <span class="text-green-400">&apos;roiyot261098@gmail.com&apos;</span>,</div><div class="text-white ml-4">phone: <span class="text-green-400">&apos;+972 (50) 639-8845&apos;</span>,</div><div class="text-white ml-4">status: <span class="text-green-400">&apos;Available for projects&apos;</span></div><div class="text-green-400"><span class="text-yellow-400">}</span>;</div>'
+        />
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            {...fadeInLeft}
+            viewport={viewportOnce}
             className="space-y-8"
           >
             <div className="space-y-6">
@@ -223,114 +198,65 @@ export const Contact = () => {
 
           {/* Contact Form */}
           <motion.form
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            {...fadeInRight}
+            viewport={viewportOnce}
             onSubmit={handleSubmit}
             className="space-y-6 bg-white dark:bg-dark-800 p-8 rounded-2xl border border-dark-200 dark:border-dark-700 shadow-lg"
           >
             <h3 className="text-2xl font-semibold mb-6">Send me a message</h3>
             
             <div className="grid md:grid-cols-2 gap-6">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <label htmlFor="name" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-2">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-lg bg-white dark:bg-dark-900 text-dark-900 dark:text-white focus:outline-none transition-all duration-200 ${
-                    formErrors.name 
-                      ? 'border-red-500 focus:ring-red-500' 
-                      : 'border-dark-200 dark:border-dark-700 focus:ring-2 focus:ring-primary-500 focus:border-transparent'
-                  }`}
-                  placeholder="Your full name"
-                />
-                {formErrors.name && (
-                  <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>
-                )}
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                <label htmlFor="email" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-dark-200 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-900 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
-                  placeholder="your.email@example.com"
-                />
-              </motion.div>
+              <FormField
+                id="name"
+                name="name"
+                label="Full Name"
+                value={formData.name}
+                onChange={handleChange}
+                error={formErrors.name}
+                placeholder="Your full name"
+              />
+              <FormField
+                id="email"
+                name="email"
+                label="Email Address"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your.email@example.com"
+                required
+                delay={0.1}
+              />
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <label htmlFor="subject" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-2">
-                Subject
-              </label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="w-full px-4 py-3 border border-dark-200 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-900 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200"
-                placeholder="What's this about?"
-              />
-            </motion.div>
+            <FormField
+              id="subject"
+              name="subject"
+              label="Subject"
+              value={formData.subject}
+              onChange={handleChange}
+              placeholder="What's this about?"
+              required
+              delay={0.2}
+            />
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <label htmlFor="message" className="block text-sm font-medium text-dark-700 dark:text-dark-300 mb-2">
-                Message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows={6}
-                className="w-full px-4 py-3 border border-dark-200 dark:border-dark-700 rounded-lg bg-white dark:bg-dark-900 text-dark-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 resize-vertical"
-                placeholder="Tell me about your project or idea..."
-              />
-            </motion.div>
+            <FormField
+              id="message"
+              name="message"
+              label="Message"
+              type="textarea"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Tell me about your project or idea..."
+              required
+              delay={0.3}
+            />
 
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              {...fadeInY}
               transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
+              viewport={viewportOnce}
               className="btn btn-primary w-full py-3 text-lg font-semibold rounded-xl shadow-glow hover:shadow-none transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (

@@ -1,29 +1,11 @@
-import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, Github, Eye, ArrowRight } from 'lucide-react'
 import { projects as mockProjects, getFeaturedProjects, incrementProjectViews } from '../data/projects'
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { SectionHeader } from './SectionHeader'
 
 export const Projects = () => {
-  const projectsRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    if (projectsRef.current) {
-      observer.observe(projectsRef.current)
-    }
-
-    return () => observer.disconnect()
-  }, [])
+  const projectsRef = useIntersectionObserver()
 
   const projects = mockProjects
   const featuredProjects = getFeaturedProjects()
@@ -32,50 +14,13 @@ export const Projects = () => {
     <section id="projects" ref={projectsRef} className="animate-on-scroll section-container">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <div className="flex items-center justify-center mb-6">
-            <div className="flex items-center space-x-3 bg-dark-100 dark:bg-dark-800 px-4 py-2 rounded-lg border border-dark-200 dark:border-dark-700">
-              <div className="flex space-x-1">
-                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              </div>
-              <span className="text-sm font-mono text-dark-600 dark:text-dark-300">Featured <span className="text-gradient">Projects</span></span>
-            </div>
-          </div>
-          
-          <p className="text-lg text-dark-600 dark:text-dark-300 max-w-2xl mx-auto mb-8">
-            A collection of my best work showcasing creativity, technical skills, and problem-solving abilities.
-          </p>
-          
-          {/* Dev-themed code snippet */}
-          <div className="mt-8 max-w-sm sm:max-w-md mx-auto px-4 sm:px-0">
-            <div className="bg-dark-900 dark:bg-dark-800 rounded-lg border border-dark-700 dark:border-dark-600 overflow-hidden">
-              <div className="flex items-center bg-dark-800 dark:bg-dark-700 px-3 py-2 border-b border-dark-700 dark:border-dark-600">
-                <div className="flex space-x-1 sm:space-x-2">
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-red-500 rounded-full"></div>
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-500 rounded-full"></div>
-                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
-                </div>
-                <span className="text-xs text-dark-400 font-mono ml-2 sm:ml-3">portfolio.js</span>
-              </div>
-              <div className="p-3 sm:p-4 font-mono text-xs sm:text-sm">
-                <div className="text-green-400 mb-1">
-                  <span className="text-blue-400">const</span> projects = <span className="text-yellow-400">await</span> fetchProjects();
-                </div>
-                <div className="text-white">
-                  <span className="text-blue-400">console</span>.<span className="text-yellow-400">log</span>(<span className="text-green-400">'Building amazing apps...'</span>);
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <SectionHeader
+          title="Projects"
+          terminalText="Featured Projects"
+          subtitle="A collection of my best work showcasing creativity, technical skills, and problem-solving abilities."
+          fileName="portfolio.js"
+          codeSnippet='<div class="text-green-400 mb-1"><span class="text-blue-400">const</span> projects = <span class="text-yellow-400">await</span> fetchProjects();</div><div class="text-white"><span class="text-blue-400">console</span>.<span class="text-yellow-400">log</span>(<span class="text-green-400">&apos;Building amazing apps...&apos;</span>);</div>'
+        />
 
 
         {/* Featured Projects */}

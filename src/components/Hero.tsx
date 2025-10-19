@@ -87,7 +87,7 @@ export const Hero = () => {
                     <span className="text-gradient">Roi Yotvat</span>
                   </div>
                   <div className="text-green-400 font-mono text-xs sm:text-sm mt-1 sm:mt-2">
-                    <span className="text-blue-400">$</span> <span className="animate-pulse">_</span>
+                   <span className="animate-pulse">_</span>
                   </div>
                 </div>
               </div>
