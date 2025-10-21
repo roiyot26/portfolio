@@ -61,7 +61,10 @@
   }
   
   .glass-effect {
-    @apply bg-white/10 backdrop-blur-md border border-white/20 {
-    }
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .tech-group:hover .tech-group-hover\:opacity-100 {
+    opacity: 1;
   }
 }

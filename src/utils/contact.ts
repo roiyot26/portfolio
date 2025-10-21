@@ -15,7 +15,7 @@ export const sendContactMessage = async (data: ContactFormData): Promise<{ succe
   // 3. Send to a third-party service like Formspree
   
   // For now, we'll just simulate a successful response
-  console.log('Contact form submission:', data)
+  // In production, you would integrate with a real email service
   
   return {
     success: true,

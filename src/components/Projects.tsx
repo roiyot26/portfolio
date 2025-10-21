@@ -207,8 +207,18 @@ export const Projects = () => {
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-dark-100 dark:bg-dark-700 text-dark-700 dark:text-dark-300 text-xs rounded">
+                    <span className="relative inline-block tech-group px-2 py-1 bg-dark-100 dark:bg-dark-700 text-dark-700 dark:text-dark-300 text-xs rounded cursor-help hover:bg-dark-200 dark:hover:bg-dark-600 transition-colors duration-200">
                       +{project.technologies.length - 3}
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-dark-800 dark:bg-dark-900 text-white text-xs rounded-lg shadow-lg opacity-0 tech-group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                        <div className="flex flex-col space-y-1">
+                          {project.technologies.slice(3).map((tech, index) => (
+                            <span key={index}>{tech}</span>
+                          ))}
+                        </div>
+                        {/* Arrow */}
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-dark-800 dark:border-t-dark-900"></div>
+                      </div>
                     </span>
                   )}
                 </div>

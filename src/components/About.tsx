@@ -36,20 +36,22 @@ export const About = () => {
             <div className="space-y-6">
               <div className="prose prose-lg max-w-none text-dark-600 dark:text-dark-300">
                 <p className="text-lg leading-relaxed mb-4">
-                  I'm a passionate full-stack developer with a love for creating beautiful, 
-                  functional applications. With over 3 years of experience in web development, 
-                  I specialize in React, Node.js, and modern web technologies.
+                  I'm a passionate Full-stack Developer with a focus on creating dynamic, 
+                  user-friendly web applications. I specialize in React, Node.js, and MongoDB, 
+                  and bring hands-on experience from both industry projects and teaching 
+                  full-stack development at <strong>Coding Academy by Misterbit</strong>.
                 </p>
                 
                 <p className="text-lg leading-relaxed mb-4">
-                  My journey began with curiosity about how websites work, and it has evolved 
-                  into a career dedicated to solving real-world problems through code. I believe 
-                  in writing clean, maintainable code and creating user experiences that are both 
-                  beautiful and intuitive.
+                  Over the past few years, I've built and deployed multiple fullstack applications, 
+                  led more than 10 student teams to successful final projects, and helped 200+ 
+                  aspiring developers gain confidence in modern web technologies.
                 </p>
                 
                 <p className="text-lg leading-relaxed">
-                  When I'm not coding, you'll find me exploring new technologies, playing volleyball, or practicing guitar skills.
+                  When I'm not coding or teaching, you'll find me exploring new technologies, 
+                  playing volleyball, or practicing guitar skills. I'm always eager to collaborate, 
+                  learn, and build tools that make a real impact.
                 </p>
               </div>
             </div>
