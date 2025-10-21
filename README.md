@@ -14,28 +14,42 @@ Visit the live website: [https://roiyot26.github.io/portfolio](https://roiyot26.
 - **Icons**: Lucide React
 - **Deployment**: GitHub Pages
 
-## 🚀 Quick Start
+## 🚀 Local Development
 
-1. Clone the repository:
+### Prerequisites
+- Node.js (version 16 or higher)
+- npm or yarn package manager
+
+### Getting Started
+
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/roiyot26/portfolio.git
 cd portfolio
 ```
 
-2. Install dependencies:
+2. **Install dependencies:**
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. **Start the development server:**
 ```bash
 npm run dev
 ```
+The development server will start on `http://localhost:5173` (or another available port). The site will automatically reload when you make changes to the source files.
 
-4. Build for production:
+4. **Build for production:**
 ```bash
 npm run build
 ```
+This creates a `dist` folder with optimized production files ready for deployment.
+
+### Development Features
+- **Hot Module Replacement (HMR)**: Changes are reflected instantly without losing state
+- **TypeScript Support**: Full type checking and IntelliSense
+- **Tailwind CSS**: Utility-first CSS framework with JIT compilation
+- **Framer Motion**: Smooth animations and transitions
 
 ## 📞 Contact
 
