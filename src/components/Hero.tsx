@@ -139,7 +139,7 @@ export const Hero = () => {
             </button>
             
             <a 
-              href="/Roi_Yotvat_cv.pdf" 
+              href="Roi_Yotvat_cv.pdf" 
               download="Roi_Yotvat_cv.pdf"
               className="btn btn-secondary px-8 py-3 text-lg font-semibold rounded-xl border-2 hover:bg-white hover:text-primary-600 transition-all duration-300"
             >

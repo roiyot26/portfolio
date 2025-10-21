@@ -141,7 +141,7 @@ export const Skills = () => {
                 >
                   <div className={`p-4 rounded-xl ${tech.bgClass} border ${tech.borderClass} hover:shadow-lg transition-all duration-300 text-center`}>
                     <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <img src={`/svg/${tech.svg}`} alt={tech.name} className="w-8 h-8" />
+                      <img src={`svg/${tech.svg}`} alt={tech.name} className="w-8 h-8" />
                     </div>
                     <h4 className={`font-semibold ${tech.textClass} text-sm`}>{tech.name}</h4>
                   </div>
