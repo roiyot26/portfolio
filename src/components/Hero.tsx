@@ -139,8 +139,8 @@ export const Hero = () => {
             </button>
             
             <a 
-              href="Roi_Yotvat_cv.pdf" 
-              download="Roi_Yotvat_cv.pdf"
+              href="CV_Roi_Yotvat.pdf" 
+              download="CV_Roi_Yotvat.pdf"
               className="btn btn-secondary px-8 py-3 text-lg font-semibold rounded-xl border-2 hover:bg-white hover:text-primary-600 transition-all duration-300"
             >
               <Download size={20} className="mr-2" />
