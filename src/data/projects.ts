@@ -63,6 +63,25 @@ export const projects: Project[] = [
     likes: 0,
     collaborators: ['Roi Yotvat']
   },
+  {
+    id: 8,
+    title: 'CryptoPal',
+    description: 'AI-curated content tailored to your investment interests. Get personalized insights and stay ahead of the crypto market.',
+    image: 'images/cryptopal.png',
+    images: ['images/cryptopal.png'],
+    technologies: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Mongoose'],
+    category: 'fullstack',
+    liveUrl: 'https://cryptopal-blond.vercel.app/',
+    githubUrl: 'https://github.com/roiyot26/CryptoPal-backend',
+    startDate: '2025-11-22',
+    featured: true,
+    priority: 11,
+    status: 'completed',
+    tags: ['crypto', 'ai', 'fullstack', 'dashboard', 'personalization'],
+    views: 0,
+    likes: 0,
+    collaborators: ['Roi Yotvat']
+  },
   // {
   //   id: 2,
   //   title: 'E-Commerce Platform',
